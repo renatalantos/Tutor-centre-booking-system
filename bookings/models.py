@@ -49,4 +49,4 @@ class Booking(models.Model):
         return f'{self.student} has booked {self.slot} at {self.booking_time}'
 
     class Meta:
-        ordering =["booking_time"]    
+        ordering = ["booking_time"]    
