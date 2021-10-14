@@ -10,7 +10,7 @@ from cloudinary.models import CloudinaryField
 
 class Student(models.Model):
     student_name = models.CharField(max_length=15)
-    sudent_email = models.EmailField(max_length=25, unique=True)
+    student_email = models.EmailField(max_length=25, unique=True)
     
 
     def __str__(self):
@@ -34,11 +34,6 @@ class Student(models.Model):
 #     duration = datetime.timedelta(hours=1)
 #     number_of_students = models.IntegerField()
     
-
-
-    
-        
-
 class Booking(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="tutored_student")
     # could User be Student here?
@@ -59,6 +54,7 @@ class Booking(models.Model):
     end_date = models.DateTimeField()
     duration = datetime.timedelta(hours=1)
     number_of_students = models.IntegerField(default=1)
+    approved = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
